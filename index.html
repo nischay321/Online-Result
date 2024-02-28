@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Checker</title>
+</head>
+<body>
+    <label for="rollNumber">Enter Roll Number:</label>
+    <input type="text" id="rollNumber">
+    <button onclick="checkResult()">Check Result</button>
+    <p id="result"></p>
+
+    <script>
+        function checkResult() {
+            var rollNumber = document.getElementById("rollNumber").value;
+            google.script.run.withSuccessHandler(displayResult).getResult(rollNumber);
+        }
+
+        function displayResult(result) {
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+</body>
+</html>
